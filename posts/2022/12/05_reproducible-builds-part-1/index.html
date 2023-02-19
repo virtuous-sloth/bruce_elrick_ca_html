@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html
+  lang="en-ca"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bruce.elrick.ca//apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bruce.elrick.ca//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bruce.elrick.ca//favicon-16x16.png">
+<link rel="manifest" href="https://bruce.elrick.ca//site.webmanifest">
+<link rel="mask-icon" href="https://bruce.elrick.ca//safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta name="keywords" content="software,
+development,
+build,
+packaging,
+security,
+Debian,
+Ubuntu,
+">
+
+<meta property="og:title" content="Reproducible builds, part 1" />
+<meta property="og:description" content="Motivation A user of Ubuntu might want to validate the source code of an Ubuntu package by downloading it with pull-lp-source1 or apt-get source. This will tell them the bundle of source code from some upstream source that the packaged is based on as well as all the Debian- and Ubuntu-specific patches that have been applied. Coupled with upstream git repositories as well as Debian2 and Ubuntu3 ones.
+All that information provides most of the context to answer questions like &ldquo;does this version of this package have this patch?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-05T11:28:49-07:00" />
+<meta property="article:modified_time" content="2022-12-05T11:28:49-07:00" />
+
+<meta property="og:site_name" content="Sloth is a Virtue" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reproducible builds, part 1"/>
+<meta name="twitter:description" content="Motivation A user of Ubuntu might want to validate the source code of an Ubuntu package by downloading it with pull-lp-source1 or apt-get source. This will tell them the bundle of source code from some upstream source that the packaged is based on as well as all the Debian- and Ubuntu-specific patches that have been applied. Coupled with upstream git repositories as well as Debian2 and Ubuntu3 ones.
+All that information provides most of the context to answer questions like &ldquo;does this version of this package have this patch?"/>
+
+
+<meta itemprop="name" content="Reproducible builds, part 1">
+<meta itemprop="description" content="Motivation A user of Ubuntu might want to validate the source code of an Ubuntu package by downloading it with pull-lp-source1 or apt-get source. This will tell them the bundle of source code from some upstream source that the packaged is based on as well as all the Debian- and Ubuntu-specific patches that have been applied. Coupled with upstream git repositories as well as Debian2 and Ubuntu3 ones.
+All that information provides most of the context to answer questions like &ldquo;does this version of this package have this patch?"><meta itemprop="datePublished" content="2022-12-05T11:28:49-07:00" />
+<meta itemprop="dateModified" content="2022-12-05T11:28:49-07:00" />
+<meta itemprop="wordCount" content="388">
+<meta itemprop="keywords" content="software,development,build,packaging,security,Debian,Ubuntu," />
+
+
+    <title>Reproducible builds, part 1 || Sloth is a Virtue</title>
+    <link rel="canonical" href="https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/" />
+
+    
+
+    <link rel="stylesheet" href="/css/reboot.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/syntax.css" />
+<script type="text/javascript" src="/js/main.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body
+  class=" look-sheet-bkg"
+  lang="en-ca">
+  <div class="nav-bkg drop-shadow">
+    <nav class="content-container pagewide-bar-padding">
+      <span class="divider">/ </span>
+      <a href="/" >Sloth is a Virtue</a>
+      <span class="divider">/ </span>
+          <a href="/posts/">Posts</a>
+      <ul class="list-unstyled right-links">
+
+          <li>
+            <a href="/tags/">
+              <span class="post-title">tags</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/categories/">
+              <span class="post-title">categories</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/about/">
+              <span class="post-title">about</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/posts/index.xml">
+              <span class="post-title">rss</span>
+            </a>
+          </li>
+
+</ul>
+
+    </nav>
+  </div>
+  <article
+    id="main"
+    class="content-container look-sheet article-pad-v "
+    itemscope
+    itemtype="https://schema.org/Article" >
+  <meta itemprop="author" content="" />
+  <meta itemprop="publisher" content="" />
+  <meta itemprop="image" content="" />
+  <h1 itemprop="name" id="title">Reproducible builds, part 1</h1>
+  <meta itemprop="headline" content="Reproducible builds, part 1" />
+  
+  <div class="post-tags">
+  
+    <a href="https://bruce.elrick.ca/tags/software/">#software</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/development/">#development</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/build/">#build</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/packaging/">#packaging</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/security/">#security</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/debian/">#Debian</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/ubuntu/">#Ubuntu</a>&nbsp;
+  
+  </div>
+  
+  
+    
+      <div class="post-date"><span itemprop="datePublished">December 5, 2022</span></div>
+      <meta itemprop="dateModified" content="December 5, 2022"/>
+    
+  
+  
+  <div itemprop="articleBody" id="content" class="article-body margin-top-2em">
+    <h2 id="motivation">Motivation</h2>
+<p>A user of Ubuntu might want to validate the source code of an Ubuntu package by
+downloading it with <code>pull-lp-source</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> or <code>apt-get
+source</code>.  This will tell them the bundle of source code from some
+upstream source that the packaged is based on as well as all the Debian- and
+Ubuntu-specific patches that have been applied. Coupled with upstream git
+repositories as well as Debian<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> and Ubuntu<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> ones.</p>
+<p>All that information provides most of the context to answer questions like
+&ldquo;does this version of this package have this patch?&rdquo;. To be honest, I still
+don&rsquo;t feel like I know my way well enough around <a href="https://launchpad.net">https://launchpad.net</a> to
+put all that together.</p>
+<p>Nevertheless the story doesn&rsquo;t stop there. Other questions might arise,
+especially for the security concious, like &ldquo;are the executables in the
+package faithful to the source from which they were built (or apparently
+built)?&rdquo;. That is what reproducible builds are about.</p>
+<h2 id="background-information">Background information</h2>
+<ul>
+<li><a href="https://rebuilderd.com/">https://rebuilderd.com/</a>
+<ul>
+<li>does not exit any more</li>
+<li><a href="https://web.archive.org/web/20220716202239/https://rebuilderd.com/">https://web.archive.org/web/20220716202239/https://rebuilderd.com/</a></li>
+</ul>
+</li>
+<li><a href="https://reproducible-builds.org/">https://reproducible-builds.org/</a></li>
+<li><a href="https://github.com/bmwiedemann/theunreproduciblepackage">https://github.com/bmwiedemann/theunreproduciblepackage</a></li>
+<li>Video presentation: &ldquo;What Makes A Build Reproducible?&rdquo;
+<ul>
+<li>Rose Judge &amp; Joshua Lock, VMWare</li>
+<li><a href="https://youtu.be/K8Xfe1Hqyao">https://youtu.be/K8Xfe1Hqyao</a></li>
+<li>notes:
+<ul>
+<li>levels
+<ol>
+<li>Unscripted build</li>
+<li>Repeatedable build (controlled steps (scripted))
+<ul>
+<li>if inputs are dynamic, could get different build/output</li>
+<li>are build environments controlled?</li>
+<li>hostnames, times, software versions, locale, &hellip;</li>
+</ul>
+</li>
+<li>Rebuildable build (controlled inputs)
+<ul>
+<li>intermediate artifacts are archived</li>
+<li>fetched artifacts are pinned and from a controlled repo</li>
+<li>hostnames, times, local, &hellip;</li>
+</ul>
+</li>
+<li>Binary reproducible (controlled states)
+<ul>
+<li>entire build environment is fully defined</li>
+<li>no uncontrolled build inputs</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>does not get into details (compilation, e.g.)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Video presentation: &ldquo;Reproducible Builds: Unexpected Benefits and Problems&rdquo;
+<ul>
+<li>Bernhard M. Wiedemann, SUSE</li>
+<li><a href="https://github.com/bmwiedemann/">https://github.com/bmwiedemann/</a></li>
+<li><a href="https://youtu.be/RfN2eWn6c9o">https://youtu.be/RfN2eWn6c9o</a></li>
+<li>notes:
+<ul>
+<li>1000 rb patches for SUSE</li>
+<li>typical problems:
+<ul>
+<li>timestamps, hostname, build IDs, readdir order, race conditions</li>
+<li>compile-time CPU detention (uses available optimizations for build CPU)</li>
+</ul>
+</li>
+<li>surprise problems
+<ul>
+<li>profile-guided optimizations (PGO)</li>
+</ul>
+</li>
+<li>feedback from test environment
+<ul>
+<li>security (signatures)</li>
+</ul>
+</li>
+<li>surprise benefits
+<ul>
+<li>counter trusting-trust-attack with diverse double compiler (DDC)</li>
+<li>control of build process can eliminate unnecessary rebuilds</li>
+<li>examples of bugs found through build process</li>
+</ul>
+</li>
+<li><a href="https://github.com/bmwiedemann/reproducibleopensuse/blob/master/howtodebug">https://github.com/bmwiedemann/reproducibleopensuse/blob/master/howtodebug</a>
+<ul>
+<li>give very detailed process of how to use this repo to detect and
+fix rp problems</li>
+<li>does refer to Debian in context of submitting to upstream:</li>
+</ul>
+</li>
+<li><a href="https://salsa.debian.org/reproducible-builds/reproducible-website">https://salsa.debian.org/reproducible-builds/reproducible-website</a>
+<ul>
+<li>however, not sure how applicable debug part is to Debian or Ubuntu
+building as opposed to SUSE</li>
+</ul>
+</li>
+<li>execellent source of <em>details</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="article-series">Article series</h2>
+<ul>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/">Part 1</a> (this article)</li>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/">Part 2</a></li>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/">Part 3</a></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>From the <a href="https://launchpad.net/ubuntu-dev-tools">https://launchpad.net/ubuntu-dev-tools</a> package&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>See <a href="https://salsa.debian.org/">https://salsa.debian.org/</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>See <a href="https://help.launchpad.net/Code/Git">https://help.launchpad.net/Code/Git</a> or <a href="https://launchpad.net/">https://launchpad.net/</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+</article>
+
+  
+  
+    <div class="nav-bkg-50 content-container-narrow-pad bottom-links text-0p75 drop-shadow">
+      <nav class="flex-row">
+      
+      <a href="https://bruce.elrick.ca/posts/2022/12/01_bookmarks/" class="flex-row v-center no-underline"  style="max-width:45%;">
+        <span class="text-1p5">←</span>&nbsp;<span class="re-underline">Previous: Bookmarks</span>
+      </a>
+      
+      
+        <a href="https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/" class="flex-row v-center no-underline" style="max-width: 45%;">
+        <span class="re-underline">Next: Reproducible builds, part 2</span>&nbsp;<span class="text-1p5">→</span>
+        </a>
+      
+      </nav>
+    </div>
+  
+
+  </body>
+</html>

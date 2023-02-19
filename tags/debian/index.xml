@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debian on Sloth is a Virtue</title>
+    <link>https://bruce.elrick.ca/tags/debian/</link>
+    <description>Recent content in Debian on Sloth is a Virtue</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-ca</language>
+    <lastBuildDate>Mon, 05 Dec 2022 11:28:49 -0700</lastBuildDate><atom:link href="https://bruce.elrick.ca/tags/debian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reproducible builds, part 1</title>
+      <link>https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/</guid>
+      <description>Motivation A user of Ubuntu might want to validate the source code of an Ubuntu package by downloading it with pull-lp-source1 or apt-get source. This will tell them the bundle of source code from some upstream source that the packaged is based on as well as all the Debian- and Ubuntu-specific patches that have been applied. Coupled with upstream git repositories as well as Debian2 and Ubuntu3 ones.
+All that information provides most of the context to answer questions like &amp;ldquo;does this version of this package have this patch?</description>
+    </item>
+    
+  </channel>
+</rss>

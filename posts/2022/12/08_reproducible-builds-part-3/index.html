@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html
+  lang="en-ca"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bruce.elrick.ca//apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bruce.elrick.ca//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bruce.elrick.ca//favicon-16x16.png">
+<link rel="manifest" href="https://bruce.elrick.ca//site.webmanifest">
+<link rel="mask-icon" href="https://bruce.elrick.ca//safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta name="keywords" content="Launchpad,
+">
+
+<meta property="og:title" content="Reproducible builds, part 3" />
+<meta property="og:description" content="Launchpad development setup Setting up and running Launchpad I&rsquo;ve finished the installation &ldquo;Setting up and running Launchpad&rdquo;. I installed it in an LXD container. I then followed the create-a-user step where it created a virtuous-sloth user with an email of virtuous-sloth@example.com. That user appeared to have my RSA key imported but I don&rsquo;t know for sure how it got it. Two possibilities exist; it pulled information from https://launchpad.net/ or it imported it from my home directory." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-08T09:23:47-07:00" />
+<meta property="article:modified_time" content="2022-12-08T09:23:47-07:00" />
+
+<meta property="og:site_name" content="Sloth is a Virtue" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reproducible builds, part 3"/>
+<meta name="twitter:description" content="Launchpad development setup Setting up and running Launchpad I&rsquo;ve finished the installation &ldquo;Setting up and running Launchpad&rdquo;. I installed it in an LXD container. I then followed the create-a-user step where it created a virtuous-sloth user with an email of virtuous-sloth@example.com. That user appeared to have my RSA key imported but I don&rsquo;t know for sure how it got it. Two possibilities exist; it pulled information from https://launchpad.net/ or it imported it from my home directory."/>
+
+
+<meta itemprop="name" content="Reproducible builds, part 3">
+<meta itemprop="description" content="Launchpad development setup Setting up and running Launchpad I&rsquo;ve finished the installation &ldquo;Setting up and running Launchpad&rdquo;. I installed it in an LXD container. I then followed the create-a-user step where it created a virtuous-sloth user with an email of virtuous-sloth@example.com. That user appeared to have my RSA key imported but I don&rsquo;t know for sure how it got it. Two possibilities exist; it pulled information from https://launchpad.net/ or it imported it from my home directory."><meta itemprop="datePublished" content="2022-12-08T09:23:47-07:00" />
+<meta itemprop="dateModified" content="2022-12-08T09:23:47-07:00" />
+<meta itemprop="wordCount" content="483">
+<meta itemprop="keywords" content="Launchpad," />
+
+
+    <title>Reproducible builds, part 3 || Sloth is a Virtue</title>
+    <link rel="canonical" href="https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/" />
+
+    
+
+    <link rel="stylesheet" href="/css/reboot.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/syntax.css" />
+<script type="text/javascript" src="/js/main.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body
+  class=" look-sheet-bkg"
+  lang="en-ca">
+  <div class="nav-bkg drop-shadow">
+    <nav class="content-container pagewide-bar-padding">
+      <span class="divider">/ </span>
+      <a href="/" >Sloth is a Virtue</a>
+      <span class="divider">/ </span>
+          <a href="/posts/">Posts</a>
+      <ul class="list-unstyled right-links">
+
+          <li>
+            <a href="/tags/">
+              <span class="post-title">tags</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/categories/">
+              <span class="post-title">categories</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/about/">
+              <span class="post-title">about</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/posts/index.xml">
+              <span class="post-title">rss</span>
+            </a>
+          </li>
+
+</ul>
+
+    </nav>
+  </div>
+  <article
+    id="main"
+    class="content-container look-sheet article-pad-v "
+    itemscope
+    itemtype="https://schema.org/Article" >
+  <meta itemprop="author" content="" />
+  <meta itemprop="publisher" content="" />
+  <meta itemprop="image" content="" />
+  <h1 itemprop="name" id="title">Reproducible builds, part 3</h1>
+  <meta itemprop="headline" content="Reproducible builds, part 3" />
+  
+  <div class="post-tags">
+  
+    <a href="https://bruce.elrick.ca/tags/launchpad/">#Launchpad</a>&nbsp;
+  
+  </div>
+  
+  
+    
+      <div class="post-date"><span itemprop="datePublished">December 8, 2022</span></div>
+      <meta itemprop="dateModified" content="December 8, 2022"/>
+    
+  
+  
+  <div itemprop="articleBody" id="content" class="article-body margin-top-2em">
+    <h2 id="launchpad-development-setup">Launchpad development setup</h2>
+<h3 id="setting-up-and-running-launchpad">Setting up and running Launchpad</h3>
+<p>I&rsquo;ve finished the installation &ldquo;Setting up and running Launchpad&rdquo;.  I installed
+it in an LXD container. I then followed the create-a-user step where it created
+a virtuous-sloth user with an email of <a href="mailto:virtuous-sloth@example.com">virtuous-sloth@example.com</a>. That user
+appeared to have my RSA key imported but I don&rsquo;t know for sure how it got it.
+Two possibilities exist; it pulled information from <a href="https://launchpad.net/">https://launchpad.net/</a> or
+it imported it from my home directory.</p>
+<p>The installation using an LXD includes instructions for mapping your home
+directory from the host hypervisor into the guest container, which is what I
+did. I&rsquo;m guessing it pulled it from my home directory.</p>
+<p>Along with the built-in <a href="mailto:admin@canonical.com">admin@canonical.com</a> all-powerful account, the two
+accounts have no password so you can log out and in as either with ease. The
+personal account is not a member of any groups so stands as a good ordinary
+test user.</p>
+<p>Looking at the Codehosting and Soyuz components, it looks like the latter is
+related to building so I think I will install that next.</p>
+<h3 id="install-soyuz">Install Soyuz</h3>
+<h4 id="initial-setup">Initial setup</h4>
+<p>In the initial setup section in the first step you run
+<code>utilities/start-dev-soyuz.sh</code> but it failed right away for me.
+This had to do with
+<a href="https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation">this deprecation</a>.
+I simply chose to disable the warning with the environment variable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PYTHONWARNINGS<span style="color:#f92672">=</span>ignore::yaml.YAMLLoadWarning
+</span></span></code></pre></div><p>and the step quickly finished.</p>
+<p>The next step imports metadata for Ubuntu releases from Dapper Drake through
+Jammy Jellyfish - nice. After restarting (<code>^C</code> in my current <code>make run</code>
+shell session then starting with <code>make run_codehosting</code>) and logging in as
+the ppa-user with my own email, I see a GPG key has been added. The document is
+a bit misleading in that it says &ldquo;This user has your GPG key associated&rdquo; but
+the key seems to be synthetic: <code>000186A0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></p>
+<h5 id="extra-ppa-dependencies">Extra PPA dependencies</h5>
+<p>This section seems to imply that you may want to change the external
+dependencies from explicitly on Lucid to a more generic form with
+<code>%(series)s</code> in the source definition, but that generic value was
+already there.</p>
+<h4 id="set-up-a-builder">Set up a builder</h4>
+<p>The documentation still says the builder is running Xenial, but if you look
+at current launchpad.net build logs (for example,
+<a href="https://launchpadlibrarian.net/635478041/buildlog_ci_lpcraft_751807cca70fe373fb6971c9ff58a993df617f99_BUILDING.txt.gz">this</a>
+you can see this near the top:</p>
+<pre tabindex="0"><code>Buildd toolchain package versions: launchpad-buildd_223~593~ubuntu20.04.1 
+</code></pre><p>Which implies the builder is running on focal, so I&rsquo;ll switch to that.</p>
+<h4 id="launchpad-configuration">Launchpad configuration</h4>
+<p>This section makes a reference to Precise Penguin. When I hit the previous
+container question of Xenial or Focal I reached out the the Launchpad
+team and asked and they said the doc was out of date and they might be
+able to fix it tomorrow. I think I&rsquo;ll wrap this up here for today, then.</p>
+<h3 id="links">Links</h3>
+<p>For reference:</p>
+<ul>
+<li><a href="https://launchpad.readthedocs.io/en/latest/how-to/running.html">Setting up and running Launchpad</a></li>
+<li><a href="https://dev.launchpad.net/Code/HowToUseCodehostingLocally">How To Use (Launchpad) Codehosting Locally</a></li>
+<li><a href="https://dev.launchpad.net/Soyuz/HowToUseSoyuzLocally">How To Use (Launchpad) Soyuz Locally</a>
+<ul>
+<li><a href="https://askubuntu.com/questions/159628/what-is-ubuntu-soyuz">What is Ubuntu Launchpad Soyuz</a></li>
+</ul>
+</li>
+<li><a href="https://dev.launchpad.net/">Launchpad Development Wiki</a></li>
+</ul>
+<h2 id="article-series">Article series</h2>
+<ul>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/">Part 1</a></li>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/">Part 2</a></li>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/">Part 3</a> (this article)</li>
+</ul>
+
+  </div>
+</article>
+
+  
+  
+    <div class="nav-bkg-50 content-container-narrow-pad bottom-links text-0p75 drop-shadow">
+      <nav class="flex-row">
+      
+      <a href="https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/" class="flex-row v-center no-underline"  style="max-width:45%;">
+        <span class="text-1p5">←</span>&nbsp;<span class="re-underline">Previous: Reproducible builds, part 2</span>
+      </a>
+      
+      
+        <span class="flex-row v-center"></span>
+      
+      </nav>
+    </div>
+  
+
+  </body>
+</html>

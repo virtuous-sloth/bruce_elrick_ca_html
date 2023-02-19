@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html
+  lang="en-ca"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bruce.elrick.ca//apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bruce.elrick.ca//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bruce.elrick.ca//favicon-16x16.png">
+<link rel="manifest" href="https://bruce.elrick.ca//site.webmanifest">
+<link rel="mask-icon" href="https://bruce.elrick.ca//safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta name="keywords" content="C,
+make,
+gcc,
+configure,
+debbuild,
+schroot,
+sbuild,
+Launchpad,
+">
+
+<meta property="og:title" content="Reproducible builds, part 2" />
+<meta property="og:description" content="Introduction I&rsquo;m looking to be able to effectively audit builds related to Ubuntu that are built using Launchpad. Launchpad is the web application and server software the Ubuntu uses for:
+code hosting project tracking bug tracking/managemnt code builds and packaging other stuff? The use case is an Ubuntu user who would like to confirm the built packages that Launchpad produces by replicating the build locally and comparing the output executables." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-06T10:48:58-07:00" />
+<meta property="article:modified_time" content="2022-12-06T10:48:58-07:00" />
+
+<meta property="og:site_name" content="Sloth is a Virtue" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reproducible builds, part 2"/>
+<meta name="twitter:description" content="Introduction I&rsquo;m looking to be able to effectively audit builds related to Ubuntu that are built using Launchpad. Launchpad is the web application and server software the Ubuntu uses for:
+code hosting project tracking bug tracking/managemnt code builds and packaging other stuff? The use case is an Ubuntu user who would like to confirm the built packages that Launchpad produces by replicating the build locally and comparing the output executables."/>
+
+
+<meta itemprop="name" content="Reproducible builds, part 2">
+<meta itemprop="description" content="Introduction I&rsquo;m looking to be able to effectively audit builds related to Ubuntu that are built using Launchpad. Launchpad is the web application and server software the Ubuntu uses for:
+code hosting project tracking bug tracking/managemnt code builds and packaging other stuff? The use case is an Ubuntu user who would like to confirm the built packages that Launchpad produces by replicating the build locally and comparing the output executables."><meta itemprop="datePublished" content="2022-12-06T10:48:58-07:00" />
+<meta itemprop="dateModified" content="2022-12-06T10:48:58-07:00" />
+<meta itemprop="wordCount" content="974">
+<meta itemprop="keywords" content="C,make,gcc,configure,debbuild,schroot,sbuild,Launchpad," />
+
+
+    <title>Reproducible builds, part 2 || Sloth is a Virtue</title>
+    <link rel="canonical" href="https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/" />
+
+    
+
+    <link rel="stylesheet" href="/css/reboot.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/syntax.css" />
+<script type="text/javascript" src="/js/main.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body
+  class=" look-sheet-bkg"
+  lang="en-ca">
+  <div class="nav-bkg drop-shadow">
+    <nav class="content-container pagewide-bar-padding">
+      <span class="divider">/ </span>
+      <a href="/" >Sloth is a Virtue</a>
+      <span class="divider">/ </span>
+          <a href="/posts/">Posts</a>
+      <ul class="list-unstyled right-links">
+
+          <li>
+            <a href="/tags/">
+              <span class="post-title">tags</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/categories/">
+              <span class="post-title">categories</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/about/">
+              <span class="post-title">about</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/posts/index.xml">
+              <span class="post-title">rss</span>
+            </a>
+          </li>
+
+</ul>
+
+    </nav>
+  </div>
+  <article
+    id="main"
+    class="content-container look-sheet article-pad-v "
+    itemscope
+    itemtype="https://schema.org/Article" >
+  <meta itemprop="author" content="" />
+  <meta itemprop="publisher" content="" />
+  <meta itemprop="image" content="" />
+  <h1 itemprop="name" id="title">Reproducible builds, part 2</h1>
+  <meta itemprop="headline" content="Reproducible builds, part 2" />
+  
+  <div class="post-tags">
+  
+    <a href="https://bruce.elrick.ca/tags/c/">#C</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/make/">#make</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/gcc/">#gcc</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/configure/">#configure</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/debbuild/">#debbuild</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/schroot/">#schroot</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/sbuild/">#sbuild</a>&nbsp;
+  
+    <a href="https://bruce.elrick.ca/tags/launchpad/">#Launchpad</a>&nbsp;
+  
+  </div>
+  
+  
+    
+      <div class="post-date"><span itemprop="datePublished">December 6, 2022</span></div>
+      <meta itemprop="dateModified" content="December 6, 2022"/>
+    
+  
+  
+  <div itemprop="articleBody" id="content" class="article-body margin-top-2em">
+    <h2 id="introduction">Introduction</h2>
+<p>I&rsquo;m looking to be able to effectively audit builds related to Ubuntu that
+are built using Launchpad. Launchpad is the web application and server
+software the Ubuntu uses for:</p>
+<ul>
+<li>code hosting</li>
+<li>project tracking</li>
+<li>bug tracking/managemnt</li>
+<li>code builds and packaging</li>
+<li>other stuff?</li>
+</ul>
+<p>The use case is an Ubuntu user who would like to confirm the built packages
+that Launchpad produces by replicating the build locally and comparing the
+output executables.</p>
+<h2 id="personal-background">Personal background</h2>
+<p>I&rsquo;m relatively new to the build and packaging game and have a cursory
+knowledge of the tools and processes, but before diving into Launchpad I
+want to write down what I do know about it, especially the Debian and
+Ubuntu processes and tools, so I have something to refer back to.</p>
+<p>Prior to this year my experience with building was twofold, one was writing
+C code and using make, the other was building gcc, perl, emacs, and other
+open source software before the age of binary distributions.</p>
+<p>I wrote batch-oriented scientific code in the early 90s while doing research
+for my Ph.D. This was at first using the IBM xlC<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> compiler on AIX<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.
+AIX used the XCOFF<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> executable file format. The structure of an
+executable file is important to understand when doing practical analysis
+of reproducible builds because if you haven&rsquo;t got to the point of producing
+bitwise identicle outputs you can still distinguish between trivial
+differences and significant differences within the sections of the executable
+file.</p>
+<p>Later I wrote batch-oriented C code that used Posix threads<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> to allow
+for parallel execution in a single memory space on a COMA<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> machine,
+the KSR-1<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>, in contrast to similar early experimental NUMA<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> machines.
+Other users of the machine were trying to research algorithms that would
+work with such an architecture while I was just trying to calculate solutions
+to physics problems using numerical methods and trying to optimize what I
+could.</p>
+<p>In parallel I did have to learn about open source building by learning to
+use the early versions of what is now GNU Autotools<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>. Just understanding
+the concept of the following sequence:</p>
+<ol>
+<li>n=1, compile gcc<sub>n</sub>=gcc<sub>1</sub> using xlC</li>
+<li>Compile gcc<sub>(n+1)</sub> using gcc<sub>n</sub></li>
+<li>If gcc<sub>(n+1)</sub> == gcc<sub>n</sub>, install gcc<sub>n</sub>, else n++ and loop back to step 2.</li>
+</ol>
+<p>is a fundamental example of the need for reproducable builds.</p>
+<p>In any event my experience was rather limited to using make and for builds and
+learning the XCOFF format.</p>
+<h2 id="note-about-debbuild">Note about debbuild</h2>
+<p>My first Debian-style build was using the basics, <code>debbuild</code>.
+I&rsquo;m going to just bullet-point a bunch of stuff I learned without trying
+to go deep into this since I want to, like I&rsquo;ve said, not be precious about
+being complete in the short term in favour of getting stuff out of my head.</p>
+<p>What I recall:</p>
+<ul>
+<li>Debian makes effort to start with a pristine source code tarball
+<ul>
+<li>pristine means it is a tar of the source code build environment provided
+by the upstream developers
+<ul>
+<li>if the upstream developers provide an actual tarball, that is what is
+preferred, since then it can be directly validated</li>
+<li>otherwise a tarball of, say, the upstream repository tree (minus
+repository metadata) as of a particular tag is used, since the
+individual files can be directly validated</li>
+</ul>
+</li>
+<li>in fact, I think the goal, in principle at least, is to be able to
+associate a particular tarball from upstream, identified not only by
+name or source but by hash, with the associated Debian source package
+version</li>
+</ul>
+</li>
+<li>the Debian build process is to then take a separately-maintained
+packaging tarball of a directory named &ldquo;debian&rdquo; that is intended to be
+extracted inside of the extracted source build tree of the upstream code</li>
+<li>anyone can then extract both the upstream tarball into a build directory
+and then extract the Debian build definition tarball into the top level
+of that build directory and then use the Debian build tools
+(<code>debbuild</code>) to build either the source or executable debian
+package</li>
+<li>the Debian tools use quilt<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup> to apply a series (pun intended) of
+localized patches to that pristine source prior to build
+<ul>
+<li>obvious the goal of Debian is to feed patches to the upstream community,
+but these patches might be ones that have not yet been accepted or,
+more likely, simply customisations of the configuration of the build
+process to suite the Debian distribution</li>
+</ul>
+</li>
+<li>Ubuntu builds on this generally by maintained a series of patches on top
+of the Debian ones with the same goal of moving any appropriate patches
+to upstream first or to Debian second</li>
+<li>The Debian tooling includes all sorts of capabilities like a change log,
+signed builds of both source and executable packages, and so on</li>
+</ul>
+<h2 id="note-about-schroot">Note about schroot</h2>
+<p>I&rsquo;ve already done a bit of that investigative work by doing builds of a
+couple Ubuntu packages (qemu-* and libvirt-*) using the schroot tool. But
+I still don&rsquo;t have a good understanding of the layering of tools from the
+low-level Makefiles and compilers to the debian/* subdirectory and
+associated build tools (debbuild, &hellip;?) up to schroot, sbuild, and
+<a href="https://launchpad.net">https://launchpad.net</a>. I mean, I have a hand-wavy understanding but not a
+detailed understanding, and that makes me feel completely unmoored.</p>
+<h2 id="note-about-sbuild">Note about sbuild</h2>
+<p>I have yet to really investigate sbuild other than seeing it in part of the
+Launchpad installation and setup and seeing that it does relate to and
+possibly use schroot.</p>
+<h2 id="launchpad">Launchpad</h2>
+<p>I&rsquo;ve installed Launchpad using
+<a href="https://bruce.elrick.ca/posts/2022/12/01_bookmarks/#launchpad-development">these resources</a>
+but have not got far into it. I was going to review that here, today,
+but I got bogged down in the above. I will continue tomorrow, hopefully.</p>
+<h2 id="article-series">Article series</h2>
+<ul>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/">Part 1</a></li>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/">Part 2</a> (this article)</li>
+<li><a href="https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/">Part 3</a></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://en.wikipedia.org/wiki/IBM_XL_C/C%2B%2B_Compilers">xlC</a> is IBM&rsquo;s proprietary C compiler&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://en.wikipedia.org/wiki/IBM_AIX">AIX</a> is IBM&rsquo;s proprietary UNIX operating system&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://en.wikipedia.org/wiki/XCOFF">XCOFF</a> is IBM&rsquo;s extension of the SysV object file format COFF&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://en.wikipedia.org/wiki/Pthreads">pthreads</a> allow for parallel execution with, for example, mutexes&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://en.wikipedia.org/wiki/Cache-only_memory_architecture">Cache-only memory architecture</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://en.wikipedia.org/wiki/Kendall_Square_Research">Kendall Square Research</a> was a supercomputer company&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p><a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access">Non-uniform memory access</a>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p><a href="https://en.wikipedia.org/wiki/GNU_Autotools">GNU Autotools</a>&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>[Quilt (software)](<a href="https://en.wikipedia.org/wiki/Quilt_(software)">https://en.wikipedia.org/wiki/Quilt_(software)</a>&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+</article>
+
+  
+  
+    <div class="nav-bkg-50 content-container-narrow-pad bottom-links text-0p75 drop-shadow">
+      <nav class="flex-row">
+      
+      <a href="https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/" class="flex-row v-center no-underline"  style="max-width:45%;">
+        <span class="text-1p5">←</span>&nbsp;<span class="re-underline">Previous: Reproducible builds, part 1</span>
+      </a>
+      
+      
+        <a href="https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/" class="flex-row v-center no-underline" style="max-width: 45%;">
+        <span class="re-underline">Next: Reproducible builds, part 3</span>&nbsp;<span class="text-1p5">→</span>
+        </a>
+      
+      </nav>
+    </div>
+  
+
+  </body>
+</html>

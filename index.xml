@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sloth is a Virtue</title>
+    <link>https://bruce.elrick.ca/</link>
+    <description>Recent content on Sloth is a Virtue</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-ca</language>
+    <lastBuildDate>Thu, 08 Dec 2022 09:23:47 -0700</lastBuildDate><atom:link href="https://bruce.elrick.ca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reproducible builds, part 3</title>
+      <link>https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/</link>
+      <pubDate>Thu, 08 Dec 2022 09:23:47 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/</guid>
+      <description>Launchpad development setup Setting up and running Launchpad I&amp;rsquo;ve finished the installation &amp;ldquo;Setting up and running Launchpad&amp;rdquo;. I installed it in an LXD container. I then followed the create-a-user step where it created a virtuous-sloth user with an email of virtuous-sloth@example.com. That user appeared to have my RSA key imported but I don&amp;rsquo;t know for sure how it got it. Two possibilities exist; it pulled information from https://launchpad.net/ or it imported it from my home directory.</description>
+    </item>
+    
+    <item>
+      <title>Reproducible builds, part 2</title>
+      <link>https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/</guid>
+      <description>Introduction I&amp;rsquo;m looking to be able to effectively audit builds related to Ubuntu that are built using Launchpad. Launchpad is the web application and server software the Ubuntu uses for:
+code hosting project tracking bug tracking/managemnt code builds and packaging other stuff? The use case is an Ubuntu user who would like to confirm the built packages that Launchpad produces by replicating the build locally and comparing the output executables.</description>
+    </item>
+    
+    <item>
+      <title>Reproducible builds, part 1</title>
+      <link>https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/posts/2022/12/05_reproducible-builds-part-1/</guid>
+      <description>Motivation A user of Ubuntu might want to validate the source code of an Ubuntu package by downloading it with pull-lp-source1 or apt-get source. This will tell them the bundle of source code from some upstream source that the packaged is based on as well as all the Debian- and Ubuntu-specific patches that have been applied. Coupled with upstream git repositories as well as Debian2 and Ubuntu3 ones.
+All that information provides most of the context to answer questions like &amp;ldquo;does this version of this package have this patch?</description>
+    </item>
+    
+    <item>
+      <title>Bookmarks</title>
+      <link>https://bruce.elrick.ca/posts/2022/12/01_bookmarks/</link>
+      <pubDate>Thu, 01 Dec 2022 11:00:00 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/posts/2022/12/01_bookmarks/</guid>
+      <description>Backup software Borg (fork of Attic) rsync.net (with borg) Static web site generation Paperesque theme for Hugo Learning to code Learning Rust with ChatGPT, Copilot and Advent of Code Launchpad development Setting up and running Launchpad How To Use (Launchpad) Codehosting Locally turnip python git hosting How To Use (Launchpad) Soyuz Locally What is Ubuntu Launchpad Soyuz </description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://bruce.elrick.ca/contact/</link>
+      <pubDate>Wed, 23 Nov 2022 15:56:02 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/contact/</guid>
+      <description>Online Presence Ping me on Mastodon GitHub Canonical LaunchPad OpenGPG Public Key 0x89a2c73018715c06 SSH Public Keys </description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://bruce.elrick.ca/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bruce.elrick.ca/about/</guid>
+      <description>My name is Bruce Elrick and this blog is where I write down thoughts as I try to work through things while learning something or solving some problem. I don&amp;rsquo;t want to be precious about writing or completing something because otherwise I might not write anything down.
+Contact Ping me on Mastodon GitHub Canonical LaunchPad OpenGPG Public Key 0x89a2c73018715c06 SSH Public Keys email bruce.elrick AT canonical.com or bruce AT elrick.ca </description>
+    </item>
+    
+  </channel>
+</rss>

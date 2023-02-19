@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gcc on Sloth is a Virtue</title>
+    <link>https://bruce.elrick.ca/tags/gcc/</link>
+    <description>Recent content in gcc on Sloth is a Virtue</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-ca</language>
+    <lastBuildDate>Tue, 06 Dec 2022 10:48:58 -0700</lastBuildDate><atom:link href="https://bruce.elrick.ca/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reproducible builds, part 2</title>
+      <link>https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/posts/2022/12/06_reproducible-builds-part-2/</guid>
+      <description>Introduction I&amp;rsquo;m looking to be able to effectively audit builds related to Ubuntu that are built using Launchpad. Launchpad is the web application and server software the Ubuntu uses for:
+code hosting project tracking bug tracking/managemnt code builds and packaging other stuff? The use case is an Ubuntu user who would like to confirm the built packages that Launchpad produces by replicating the build locally and comparing the output executables.</description>
+    </item>
+    
+  </channel>
+</rss>

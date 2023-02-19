@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Sloth is a Virtue</title>
+    <link>https://bruce.elrick.ca/tags/</link>
+    <description>Recent content in Tags on Sloth is a Virtue</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-ca</language>
+    <lastBuildDate>Thu, 08 Dec 2022 09:23:47 -0700</lastBuildDate><atom:link href="https://bruce.elrick.ca/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Launchpad</title>
+      <link>https://bruce.elrick.ca/tags/launchpad/</link>
+      <pubDate>Thu, 08 Dec 2022 09:23:47 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/launchpad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C</title>
+      <link>https://bruce.elrick.ca/tags/c/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>configure</title>
+      <link>https://bruce.elrick.ca/tags/configure/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/configure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>debbuild</title>
+      <link>https://bruce.elrick.ca/tags/debbuild/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/debbuild/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gcc</title>
+      <link>https://bruce.elrick.ca/tags/gcc/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/gcc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>make</title>
+      <link>https://bruce.elrick.ca/tags/make/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/make/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sbuild</title>
+      <link>https://bruce.elrick.ca/tags/sbuild/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/sbuild/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>schroot</title>
+      <link>https://bruce.elrick.ca/tags/schroot/</link>
+      <pubDate>Tue, 06 Dec 2022 10:48:58 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/schroot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>build</title>
+      <link>https://bruce.elrick.ca/tags/build/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/build/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debian</title>
+      <link>https://bruce.elrick.ca/tags/debian/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>https://bruce.elrick.ca/tags/development/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>packaging</title>
+      <link>https://bruce.elrick.ca/tags/packaging/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/packaging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://bruce.elrick.ca/tags/security/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software</title>
+      <link>https://bruce.elrick.ca/tags/software/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://bruce.elrick.ca/tags/ubuntu/</link>
+      <pubDate>Mon, 05 Dec 2022 11:28:49 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>backup</title>
+      <link>https://bruce.elrick.ca/tags/backup/</link>
+      <pubDate>Thu, 01 Dec 2022 11:00:00 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://bruce.elrick.ca/tags/web/</link>
+      <pubDate>Thu, 01 Dec 2022 11:00:00 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/tags/web/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
