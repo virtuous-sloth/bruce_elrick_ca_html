@@ -2,25 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://bruce.elrick.ca/categories/articles/</loc>
-    <lastmod>2022-12-08T09:23:47-07:00</lastmod>
+    <loc>https://bruce.elrick.ca/tags/audit/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/categories/bookmarks/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/posts/2023/03/04_bookmarks/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/tags/calgary/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
   </url><url>
     <loc>https://bruce.elrick.ca/categories/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/tags/cities/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/tags/computer-languages/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/tags/computer-science/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/tags/not-just-bikes/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/posts/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/categories/snippets/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/tags/strongtowns/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/tags/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/tags/videos/</loc>
+    <lastmod>2023-03-04T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://bruce.elrick.ca/categories/articles/</loc>
     <lastmod>2022-12-08T09:23:47-07:00</lastmod>
   </url><url>
     <loc>https://bruce.elrick.ca/tags/launchpad/</loc>
     <lastmod>2022-12-08T09:23:47-07:00</lastmod>
   </url><url>
-    <loc>https://bruce.elrick.ca/posts/</loc>
-    <lastmod>2022-12-08T09:23:47-07:00</lastmod>
-  </url><url>
     <loc>https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/</loc>
-    <lastmod>2022-12-08T09:23:47-07:00</lastmod>
-  </url><url>
-    <loc>https://bruce.elrick.ca/</loc>
-    <lastmod>2022-12-08T09:23:47-07:00</lastmod>
-  </url><url>
-    <loc>https://bruce.elrick.ca/tags/</loc>
     <lastmod>2022-12-08T09:23:47-07:00</lastmod>
   </url><url>
     <loc>https://bruce.elrick.ca/tags/c/</loc>
@@ -74,13 +107,7 @@
     <loc>https://bruce.elrick.ca/tags/backup/</loc>
     <lastmod>2022-12-01T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://bruce.elrick.ca/categories/bookmarks/</loc>
-    <lastmod>2022-12-01T11:00:00-07:00</lastmod>
-  </url><url>
     <loc>https://bruce.elrick.ca/posts/2022/12/01_bookmarks/</loc>
-    <lastmod>2022-12-01T11:00:00-07:00</lastmod>
-  </url><url>
-    <loc>https://bruce.elrick.ca/categories/snippets/</loc>
     <lastmod>2022-12-01T11:00:00-07:00</lastmod>
   </url><url>
     <loc>https://bruce.elrick.ca/tags/web/</loc>

@@ -6,7 +6,16 @@
     <description>Recent content on Sloth is a Virtue</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-ca</language>
-    <lastBuildDate>Thu, 08 Dec 2022 09:23:47 -0700</lastBuildDate><atom:link href="https://bruce.elrick.ca/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Mar 2023 11:00:00 -0700</lastBuildDate><atom:link href="https://bruce.elrick.ca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bookmarks</title>
+      <link>https://bruce.elrick.ca/posts/2023/03/04_bookmarks/</link>
+      <pubDate>Sat, 04 Mar 2023 11:00:00 -0700</pubDate>
+      
+      <guid>https://bruce.elrick.ca/posts/2023/03/04_bookmarks/</guid>
+      <description>Life Calgary stories Livewire: Calgary’s Next Economy the sprawl: Should Calgary ditch the cowboy motif — or embrace it? the sprawl: The secret cities we all carry with us Cities are people places Strong Towns: You Have All the Parking You Need—And It’s Hiding in Plain Sight Strong Towns: Are Parking Lots Ruining Your City? Not Just Bikes: The Strong Towns playlist Not Just Bikes: The Truth about American Cities [ST01] Not Just Bikes: How Suburban Development Makes American Cities Poorer [ST02] Not Just Bikes: Why American Cities Are Broke - The Growth Ponzi Scheme [ST03] Not Just Bikes: How Bankrupt American Cities Stay Alive - Debt [ST04] Not Just Bikes: Stroads are Ugly, Expensive, and Dangerous (and they&amp;rsquo;re everywhere) [ST05] Not Just Bikes: The Wrong Way to Set Speed Limits [ST06] Not Just Bikes: Suburbia is Subsidized: Here&amp;rsquo;s the Math [ST07] Not Just Bikes: Would You Fall for It?</description>
+    </item>
+    
     <item>
       <title>Reproducible builds, part 3</title>
       <link>https://bruce.elrick.ca/posts/2022/12/08_reproducible-builds-part-3/</link>
